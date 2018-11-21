@@ -1,0 +1,6 @@
+numpy==1.14.5
+SQLAlchemy==1.1.5
+Keras==2.2.0
+Scrapy==1.5.1
+six==1.11.0
+scikit_learn==0.19.2
