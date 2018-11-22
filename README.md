@@ -39,12 +39,12 @@ The datasets are collected from different open sites, crawling a subset sample f
 -	http://forums.mozillazine.org
 -	https://bodybuilding.com
 
-![barplot](https://raw.githubusercontent.com/lazem/MLND-capstone-proposal/master/images/barplot.png)
+![barplot](https://github.com/lazem/MLND-Capstone/blob/master/Proposal/images/barplot.png)
 
 
  ## Result
 
 This is the final model accuracy and loss result history, across the four training and validation sets.
 
-![result](https://raw.githubusercontent.com/lazem/MLND-capstone-proposal/master/images/result.png)
+![result](https://github.com/lazem/MLND-Capstone/blob/master/Proposal/images/result.png)
 
