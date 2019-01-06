@@ -9,8 +9,6 @@ from scrapy.utils.project import get_project_settings
 from .. import dup_detect_filter
 
 
-
-
 class ContentSpider(scrapy.Spider):
     name = "content"
 
@@ -53,7 +51,7 @@ class ContentSpider(scrapy.Spider):
         # the meta dict is used here in case the duplicate filter is activated,
         # to pass the parent url
         # the parent_page is empty to ignore the first url..
-        meta = dict({'parent_page':""})
+        meta = dict({'parent_page': ""})
         for url in urls:
             yield scrapy.Request(url=url, meta=meta, callback=self.parse)
 
@@ -69,7 +67,7 @@ class ContentSpider(scrapy.Spider):
         self.count += 1
         # close the spider if a definite number of pages is crawled..
         if (self.count > self.COUNT_MAX):
-            raise CloseSpider(reason='The watcher is no longer active.')
+            raise CloseSpider(reason='The crawler is no longer active.')
         # extract further requests from the page..
         rs = self._extract_requests(response)
         if rs:

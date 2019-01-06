@@ -1,7 +1,7 @@
 import numpy as np
 import json
 from keras import Sequential, Model
-from keras.layers import LSTM, Dense, Dropout, Embedding,  \
+from keras.layers import LSTM, Dense, Dropout, Embedding, \
     Concatenate, Flatten, TimeDistributed, Input
 from sklearn.model_selection import train_test_split
 import keras
@@ -27,8 +27,9 @@ class DuplicateFilter:
         url_b = Input(shape=(self.config['max_url_seq_length'],))
 
         first_model = Sequential()
-        first_model.add(Embedding(input_dim=self.config['num_input_tokens'], input_length=self.config['max_url_seq_length'],
-                                  output_dim=EMBEDDING_SIZE))  # input_length=config['max_url_seq_length'],
+        first_model.add(
+            Embedding(input_dim=self.config['num_input_tokens'], input_length=self.config['max_url_seq_length'],
+                      output_dim=EMBEDDING_SIZE))  # input_length=config['max_url_seq_length'],
 
         first_model.add(LSTM(NB_LSTM_CELLS, return_sequences=True, dropout=0.2))
         first_model.add(TimeDistributed(Dense(NB_LSTM_CELLS)))

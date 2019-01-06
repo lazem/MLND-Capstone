@@ -41,23 +41,23 @@ def remover_boiler_code(decoded_full_html):
     # Get content of page, remove html code
     extracted_content = ''
     paragraphs = justext.justext(decoded_full_html, justext.get_stoplist("English"))
-    for paragraph in paragraphs:
-        extracted_content += paragraph.text.lower() + "\n"
+
+    extracted_content = "\n".join([paragraph.text.lower() for paragraph in paragraphs])
 
     return extracted_content
 
 
 def main():
     db_handler = DatabaseHandler()
-    #1. find all referer urls, save them in referer table for ease of processing
+    # 1. find all referer urls, save them in referer table for ease of processing
     db_handler.find_distinct()
-    #2. add content_text column to the pages table
+    # 2. add content_text column to the pages table
     db_handler.add_column()
-    #3. use the boiler removal function to get the content text
+    # 3. use the boiler removal function to get the content text
     db_handler.update_content_text(remover_boiler_code)
-    #4. construct the url pairs
+    # 4. construct the url pairs
     fill_url_pairs(db_handler)
-    #5. update the similarity scores with structural and semantic similarity functions
+    # 5. update the similarity scores with structural and semantic similarity functions
     db_handler.update_sim_score(similarity, get_cosine_sim, )
 
 

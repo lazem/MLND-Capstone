@@ -33,4 +33,3 @@ def fill_url_pairs(db_handler):
         if pairs:
             db_handler.add_url_pair(pairs)
         db_handler.update_referer(referer)
-
